@@ -102,23 +102,23 @@ management:
 # 提供swagger文档的服务
 swagger:
   providers:
-    - user-service
-    - exam-service
-    - auth-service
-    - msc-service
+  - user-service
+  - exam-service
+  - auth-service
+  - msc-service
 
 # 演示环境
 preview:
   enabled: ${PREVIEW_ENABLED:false}
   ignores:
-    - api/auth  # 授权服务
-    - resetPassword   # 重置密码
-    - register
-    - checkExist
-    - updateInfo
-    - attachment
-    - api/exam  # 考试服务
-    - api/msc
+  - api/auth  # 授权服务
+  - resetPassword   # 重置密码
+  - register
+  - checkExist
+  - updateInfo
+  - attachment
+  - api/exam  # 考试服务
+  - api/msc
 
 # 开启网关token转换
 # 暂时关闭，此功能在微信端登录有问题

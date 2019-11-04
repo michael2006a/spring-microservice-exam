@@ -26,21 +26,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/v1/sms")
 public class SmsController extends BaseController {
 
-    private final SmsService smsService;
+  private final SmsService smsService;
 
-    /**
-     * 发送短信
-     *
-     * @param smsDto smsDto
-     * @return ResponseBean
-     * @author tangyi
-     * @date 2019/06/22 13:12
-     */
-    @PostMapping("sendSms")
-    public ResponseBean<SmsResponse> sendSms(@RequestBody SmsDto smsDto) {
-        log.info("发送短信给{}，发送内容：{}", smsDto.getReceiver(), smsDto.getContent());
-        SmsResponse smsResponse = smsService.sendSms(smsDto);
-        log.info("发送短信成功，返回内容：{}", smsResponse);
-        return new ResponseBean<>(smsResponse);
-    }
+  /**
+   * 发送短信
+   *
+   * @param smsDto smsDto
+   * @return ResponseBean
+   * @author tangyi
+   * @date 2019/06/22 13:12
+   */
+  @PostMapping("sendSms")
+  public ResponseBean<SmsResponse> sendSms(@RequestBody SmsDto smsDto) {
+    log.info("发送短信给{}，发送内容：{}", smsDto.getReceiver(), smsDto.getContent());
+    SmsResponse smsResponse = smsService.sendSms(smsDto);
+    log.info("发送短信成功，返回内容：{}", smsResponse);
+    return new ResponseBean<>(smsResponse);
+  }
 }

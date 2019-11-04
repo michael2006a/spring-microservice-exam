@@ -16,19 +16,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class MscServiceClientFallbackImpl implements MscServiceClient {
 
-    private Throwable throwable;
+  private Throwable throwable;
 
-    @Override
-    public ResponseBean<?> sendSms(SmsDto smsDto) {
-        log.error("feign 发送短信失败:{}, {}, {}", smsDto.getReceiver(), smsDto.getContent(), throwable);
-        return null;
-    }
+  @Override
+  public ResponseBean<?> sendSms(SmsDto smsDto) {
+    log.error("feign 发送短信失败:{}, {}, {}", smsDto.getReceiver(), smsDto.getContent(), throwable);
+    return null;
+  }
 
-    public Throwable getThrowable() {
-        return throwable;
-    }
+  public Throwable getThrowable() {
+    return throwable;
+  }
 
-    public void setThrowable(Throwable throwable) {
-        this.throwable = throwable;
-    }
+  public void setThrowable(Throwable throwable) {
+    this.throwable = throwable;
+  }
 }

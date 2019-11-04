@@ -12,13 +12,13 @@ import lombok.Data;
 @Data
 public class UserDept extends BaseEntity<UserDept> {
 
-    /**
-     * 用户ID
-     */
-    private String userId;
+  /**
+   * 用户ID
+   */
+  private String userId;
 
-    /**
-     * 部门ID
-     */
-    private String deptId;
+  /**
+   * 部门ID
+   */
+  private String deptId;
 }

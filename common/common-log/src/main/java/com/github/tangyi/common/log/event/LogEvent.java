@@ -10,7 +10,8 @@ import org.springframework.context.ApplicationEvent;
  * @date 2019/3/12 23:58
  */
 public class LogEvent extends ApplicationEvent {
-    public LogEvent(Log source) {
-        super(source);
-    }
+
+  public LogEvent(Log source) {
+    super(source);
+  }
 }

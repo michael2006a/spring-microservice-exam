@@ -7,5 +7,6 @@ package com.github.tangyi.common.core.persistence;
  * @date 2018-08-24 18:59
  */
 public interface BaseMapper {
+
 }
 

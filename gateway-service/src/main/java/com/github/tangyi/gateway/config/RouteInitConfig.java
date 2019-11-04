@@ -1,11 +1,10 @@
 package com.github.tangyi.gateway.config;
 
 import com.github.tangyi.gateway.service.RouteService;
+import javax.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
-
-import javax.annotation.PostConstruct;
 
 /**
  * 初始化的时候加载路由数据
@@ -18,10 +17,10 @@ import javax.annotation.PostConstruct;
 @Configuration
 public class RouteInitConfig {
 
-    private final RouteService routeService;
+  private final RouteService routeService;
 
-    @PostConstruct
-    public void initRoute() {
-        routeService.refresh();
-    }
+  @PostConstruct
+  public void initRoute() {
+    routeService.refresh();
+  }
 }

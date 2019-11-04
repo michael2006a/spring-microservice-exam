@@ -1,9 +1,8 @@
 package com.github.tangyi.exam.controller;
 
+import java.security.Principal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.security.Principal;
 
 /**
  * @author tangyi
@@ -12,8 +11,8 @@ import java.security.Principal;
 @RestController
 public class ExamController {
 
-    @GetMapping("sayHello")
-    public String sayHello(Principal principal, String name) {
-        return "hello, " + name + ", principal: " + principal.toString();
-    }
+  @GetMapping("sayHello")
+  public String sayHello(Principal principal, String name) {
+    return "hello, " + name + ", principal: " + principal.toString();
+  }
 }

@@ -56,7 +56,7 @@ security:
           6wIDAQAB
           -----END PUBLIC KEY-----
 
-# feign相关配置
+        # feign相关配置
 feign:
   httpclient:
     enabled: false
@@ -97,21 +97,21 @@ sms:
 
 ignore:
   urls:
-    - /
-    - /error
-    - /favicon.ico
-    - /**/*swagger*/**
-    - /v2/api-docs
-    - /csrf
-    - /actuator/**
-    - /hystrix.sender
-    - /v1/sms/**
-    - /**/*.css
-    - /**/*.js
-    - /info
-    - /health
-    - /metrics/**
-    - /loggers/**
+  - /
+  - /error
+  - /favicon.ico
+  - /**/*swagger*/**
+  - /v2/api-docs
+  - /csrf
+  - /actuator/**
+  - /hystrix.sender
+  - /v1/sms/**
+  - /**/*.css
+  - /**/*.js
+  - /info
+  - /health
+  - /metrics/**
+  - /loggers/**
 
 # 集群ID生成配置
 cluster:

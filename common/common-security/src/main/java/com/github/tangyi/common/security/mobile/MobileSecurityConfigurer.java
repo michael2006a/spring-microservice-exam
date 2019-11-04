@@ -19,28 +19,31 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
  * @date 2019/6/22 21:26
  */
 @Data
-public class MobileSecurityConfigurer extends SecurityConfigurerAdapter<DefaultSecurityFilterChain, HttpSecurity> {
+public class MobileSecurityConfigurer extends
+    SecurityConfigurerAdapter<DefaultSecurityFilterChain, HttpSecurity> {
 
-    @Autowired
-    private ObjectMapper objectMapper;
+  @Autowired
+  private ObjectMapper objectMapper;
 
-    @Autowired
-    private AuthenticationEventPublisher defaultAuthenticationEventPublisher;
+  @Autowired
+  private AuthenticationEventPublisher defaultAuthenticationEventPublisher;
 
-    private AuthenticationSuccessHandler mobileLoginSuccessHandler;
+  private AuthenticationSuccessHandler mobileLoginSuccessHandler;
 
-    private CustomUserDetailsService userDetailsService;
+  private CustomUserDetailsService userDetailsService;
 
-    @Override
-    public void configure(HttpSecurity http) {
-        // 手机登录过滤器
-        MobileAuthenticationFilter mobileAuthenticationFilter = new MobileAuthenticationFilter();
-        mobileAuthenticationFilter.setAuthenticationManager(http.getSharedObject(AuthenticationManager.class));
-        mobileAuthenticationFilter.setAuthenticationSuccessHandler(mobileLoginSuccessHandler);
-        mobileAuthenticationFilter.setEventPublisher(defaultAuthenticationEventPublisher);
-        MobileAuthenticationProvider mobileAuthenticationProvider = new MobileAuthenticationProvider();
-        mobileAuthenticationProvider.setCustomUserDetailsService(userDetailsService);
-        // 增加手机登录的过滤器
-        http.authenticationProvider(mobileAuthenticationProvider).addFilterAfter(mobileAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
-    }
+  @Override
+  public void configure(HttpSecurity http) {
+    // 手机登录过滤器
+    MobileAuthenticationFilter mobileAuthenticationFilter = new MobileAuthenticationFilter();
+    mobileAuthenticationFilter
+        .setAuthenticationManager(http.getSharedObject(AuthenticationManager.class));
+    mobileAuthenticationFilter.setAuthenticationSuccessHandler(mobileLoginSuccessHandler);
+    mobileAuthenticationFilter.setEventPublisher(defaultAuthenticationEventPublisher);
+    MobileAuthenticationProvider mobileAuthenticationProvider = new MobileAuthenticationProvider();
+    mobileAuthenticationProvider.setCustomUserDetailsService(userDetailsService);
+    // 增加手机登录的过滤器
+    http.authenticationProvider(mobileAuthenticationProvider)
+        .addFilterAfter(mobileAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+  }
 }

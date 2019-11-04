@@ -9,16 +9,16 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties("gateway.token-transfer")
 public class GatewayTokenTransferProperties {
 
-    /**
-     * 默认开启
-     */
-    private boolean enabled = true;
+  /**
+   * 默认开启
+   */
+  private boolean enabled = true;
 
-    public boolean isEnabled() {
-        return enabled;
-    }
+  public boolean isEnabled() {
+    return enabled;
+  }
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
+  public void setEnabled(boolean enabled) {
+    this.enabled = enabled;
+  }
 }

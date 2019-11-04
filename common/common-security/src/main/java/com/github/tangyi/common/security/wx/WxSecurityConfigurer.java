@@ -19,28 +19,31 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
  * @date 2019/07/05 19:29
  */
 @Data
-public class WxSecurityConfigurer extends SecurityConfigurerAdapter<DefaultSecurityFilterChain, HttpSecurity> {
+public class WxSecurityConfigurer extends
+    SecurityConfigurerAdapter<DefaultSecurityFilterChain, HttpSecurity> {
 
-    @Autowired
-    private ObjectMapper objectMapper;
+  @Autowired
+  private ObjectMapper objectMapper;
 
-    @Autowired
-    private AuthenticationEventPublisher defaultAuthenticationEventPublisher;
+  @Autowired
+  private AuthenticationEventPublisher defaultAuthenticationEventPublisher;
 
-    private AuthenticationSuccessHandler wxLoginSuccessHandler;
+  private AuthenticationSuccessHandler wxLoginSuccessHandler;
 
-    private CustomUserDetailsService userDetailsService;
+  private CustomUserDetailsService userDetailsService;
 
-    @Override
-    public void configure(HttpSecurity http) {
-        // 微信登录过滤器
-        WxAuthenticationFilter wxAuthenticationFilter = new WxAuthenticationFilter();
-        wxAuthenticationFilter.setAuthenticationManager(http.getSharedObject(AuthenticationManager.class));
-        wxAuthenticationFilter.setAuthenticationSuccessHandler(wxLoginSuccessHandler);
-        wxAuthenticationFilter.setEventPublisher(defaultAuthenticationEventPublisher);
-        WxAuthenticationProvider wxAuthenticationProvider = new WxAuthenticationProvider();
-        wxAuthenticationProvider.setCustomUserDetailsService(userDetailsService);
-        // 增加微信登录的过滤器
-        http.authenticationProvider(wxAuthenticationProvider).addFilterAfter(wxAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
-    }
+  @Override
+  public void configure(HttpSecurity http) {
+    // 微信登录过滤器
+    WxAuthenticationFilter wxAuthenticationFilter = new WxAuthenticationFilter();
+    wxAuthenticationFilter
+        .setAuthenticationManager(http.getSharedObject(AuthenticationManager.class));
+    wxAuthenticationFilter.setAuthenticationSuccessHandler(wxLoginSuccessHandler);
+    wxAuthenticationFilter.setEventPublisher(defaultAuthenticationEventPublisher);
+    WxAuthenticationProvider wxAuthenticationProvider = new WxAuthenticationProvider();
+    wxAuthenticationProvider.setCustomUserDetailsService(userDetailsService);
+    // 增加微信登录的过滤器
+    http.authenticationProvider(wxAuthenticationProvider)
+        .addFilterAfter(wxAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+  }
 }

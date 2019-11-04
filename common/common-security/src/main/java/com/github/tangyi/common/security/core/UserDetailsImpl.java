@@ -1,11 +1,10 @@
 package com.github.tangyi.common.security.core;
 
 import com.github.tangyi.common.security.constant.SecurityConstant;
+import java.util.Set;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
-import java.util.Set;
 
 /**
  * UserDetails封装
@@ -16,73 +15,74 @@ import java.util.Set;
 @Data
 public class UserDetailsImpl implements UserDetails {
 
-    private static final long serialVersionUID = -6509897037222767090L;
+  private static final long serialVersionUID = -6509897037222767090L;
 
-    /**
-     * 权限
-     */
-    private Set<GrantedAuthority> authorities;
+  /**
+   * 权限
+   */
+  private Set<GrantedAuthority> authorities;
 
-    /**
-     * 密码
-     */
-    private String password;
+  /**
+   * 密码
+   */
+  private String password;
 
-    /**
-     * 用户名
-     */
-    private String username;
+  /**
+   * 用户名
+   */
+  private String username;
 
-    /**
-     * 启用禁用状态
-     */
-    private String status;
+  /**
+   * 启用禁用状态
+   */
+  private String status;
 
-    /**
-     * 租户标识
-     */
-    private String tenantCode;
+  /**
+   * 租户标识
+   */
+  private String tenantCode;
 
-    public UserDetailsImpl(String tenantCode, String username, String password, String status, Set<GrantedAuthority> authorities) {
-        this.tenantCode = tenantCode;
-        this.authorities = authorities;
-        this.username = username;
-        this.password = password;
-        this.status = status;
-    }
+  public UserDetailsImpl(String tenantCode, String username, String password, String status,
+      Set<GrantedAuthority> authorities) {
+    this.tenantCode = tenantCode;
+    this.authorities = authorities;
+    this.username = username;
+    this.password = password;
+    this.status = status;
+  }
 
-    @Override
-    public Set<GrantedAuthority> getAuthorities() {
-        return this.authorities;
-    }
+  @Override
+  public Set<GrantedAuthority> getAuthorities() {
+    return this.authorities;
+  }
 
-    @Override
-    public String getPassword() {
-        return this.password;
-    }
+  @Override
+  public String getPassword() {
+    return this.password;
+  }
 
-    @Override
-    public String getUsername() {
-        return this.username;
-    }
+  @Override
+  public String getUsername() {
+    return this.username;
+  }
 
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
+  @Override
+  public boolean isAccountNonExpired() {
+    return true;
+  }
 
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
+  @Override
+  public boolean isAccountNonLocked() {
+    return true;
+  }
 
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
+  @Override
+  public boolean isCredentialsNonExpired() {
+    return true;
+  }
 
-    @Override
-    public boolean isEnabled() {
-        return SecurityConstant.NORMAL.equals(this.status);
-    }
+  @Override
+  public boolean isEnabled() {
+    return SecurityConstant.NORMAL.equals(this.status);
+  }
 }

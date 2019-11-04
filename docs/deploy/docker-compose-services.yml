@@ -9,9 +9,9 @@ services:
     env_file: docker-compose.env  # 从文件中获取配置
     restart: always
     ports:
-      - "9180:9180"
+    - "9180:9180"
     networks:
-      - net
+    - net
 
   # ---------------------------
   # 授权服务
@@ -22,9 +22,9 @@ services:
     env_file: docker-compose.env  # 从文件中获取配置
     restart: always
     ports:
-      - "9182:9182"
+    - "9182:9182"
     networks:
-      - net
+    - net
 
   # ---------------------------
   # 用户服务
@@ -35,9 +35,9 @@ services:
     env_file: docker-compose.env  # 从文件中获取配置
     restart: always
     ports:
-      - "9183:9183"
+    - "9183:9183"
     networks:
-      - net
+    - net
 
   # ---------------------------
   # 考试服务
@@ -48,9 +48,9 @@ services:
     env_file: docker-compose.env  # 从文件中获取配置
     restart: always
     ports:
-      - "9184:9184"
+    - "9184:9184"
     networks:
-      - net
+    - net
 
   # ---------------------------
   # 消息服务
@@ -61,9 +61,9 @@ services:
     env_file: docker-compose.env  # 从文件中获取配置
     restart: always
     ports:
-      - "9185:9185"
+    - "9185:9185"
     networks:
-      - net
+    - net
 
   # ---------------------------
   # 监控服务
@@ -74,9 +74,9 @@ services:
     env_file: docker-compose.env  # 从文件中获取配置
     restart: always
     ports:
-      - "9186:9186"
+    - "9186:9186"
     networks:
-      - net
+    - net
 
 networks:
   net:

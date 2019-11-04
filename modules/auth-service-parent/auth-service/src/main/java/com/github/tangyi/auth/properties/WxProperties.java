@@ -15,9 +15,9 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "wx")
 public class WxProperties {
 
-    private String appId;
+  private String appId;
 
-    private String appSecret;
+  private String appSecret;
 
-    private String grantType;
+  private String grantType;
 }

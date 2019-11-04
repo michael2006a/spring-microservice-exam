@@ -12,37 +12,37 @@ import lombok.Data;
 @Data
 public class SubjectCategoryDto extends TreeEntity<SubjectCategoryDto> {
 
-    /**
-     * 分类名称
-     */
-    private String categoryName;
+  /**
+   * 分类名称
+   */
+  private String categoryName;
 
-    /**
-     * 分类描述
-     */
-    private String categoryDesc;
+  /**
+   * 分类描述
+   */
+  private String categoryDesc;
 
-    /**
-     * 父分类id
-     */
-    @JsonFormat(shape = JsonFormat.Shape.STRING)
-    private Long parentId;
+  /**
+   * 父分类id
+   */
+  @JsonFormat(shape = JsonFormat.Shape.STRING)
+  private Long parentId;
 
-    public SubjectCategoryDto(SubjectCategory subjectCategory) {
-        this.id = subjectCategory.getId();
-        this.categoryName = subjectCategory.getCategoryName();
-        this.categoryDesc = subjectCategory.getCategoryDesc();
-        this.parentId = subjectCategory.getParentId();
-        this.sort = subjectCategory.getSort();
-    }
+  public SubjectCategoryDto(SubjectCategory subjectCategory) {
+    this.id = subjectCategory.getId();
+    this.categoryName = subjectCategory.getCategoryName();
+    this.categoryDesc = subjectCategory.getCategoryDesc();
+    this.parentId = subjectCategory.getParentId();
+    this.sort = subjectCategory.getSort();
+  }
 
-    @Override
-    public Long getParentId() {
-        return parentId;
-    }
+  @Override
+  public Long getParentId() {
+    return parentId;
+  }
 
-    @Override
-    public void setParentId(Long parentId) {
-        this.parentId = parentId;
-    }
+  @Override
+  public void setParentId(Long parentId) {
+    this.parentId = parentId;
+  }
 }

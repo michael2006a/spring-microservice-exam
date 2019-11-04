@@ -6,18 +6,18 @@ package com.github.tangyi.user.api.constant;
  */
 public class TenantConstant {
 
-    /**
-     * 待审核
-     */
-    public static final Integer PENDING_AUDIT = 0;
+  /**
+   * 待审核
+   */
+  public static final Integer PENDING_AUDIT = 0;
 
-    /**
-     * 审核通过
-     */
-    public static final Integer APPROVAL = 1;
+  /**
+   * 审核通过
+   */
+  public static final Integer APPROVAL = 1;
 
-    /**
-     * 审核不通过
-     */
-    public static final Integer AUDIT_FAIL = 2;
+  /**
+   * 审核不通过
+   */
+  public static final Integer AUDIT_FAIL = 2;
 }

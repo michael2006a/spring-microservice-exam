@@ -1,9 +1,8 @@
 package com.github.tangyi.common.core.persistence;
 
 import com.github.tangyi.common.core.constant.CommonConstant;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * Crud Mapper
@@ -13,68 +12,68 @@ import java.util.List;
  */
 public interface CrudMapper<T> extends BaseMapper {
 
-    /**
-     * 获取单条数据
-     *
-     * @param entity entity
-     * @return T
-     */
-    T get(T entity);
+  /**
+   * 获取单条数据
+   *
+   * @param entity entity
+   * @return T
+   */
+  T get(T entity);
 
-    /**
-     * 获取列表数据
-     *
-     * @param entity entity
-     * @return List
-     */
-    List<T> findList(T entity);
+  /**
+   * 获取列表数据
+   *
+   * @param entity entity
+   * @return List
+   */
+  List<T> findList(T entity);
 
-    /**
-     * 获取全部列表数据
-     *
-     * @param entity entity
-     * @return List
-     */
-    List<T> findAllList(T entity);
+  /**
+   * 获取全部列表数据
+   *
+   * @param entity entity
+   * @return List
+   */
+  List<T> findAllList(T entity);
 
-    /**
-     * 根据id获取列表数据
-     *
-     * @param ids ids
-     * @return List
-     */
-    List<T> findListById(@Param(CommonConstant.PARAM_IDS) Long[] ids);
+  /**
+   * 根据id获取列表数据
+   *
+   * @param ids ids
+   * @return List
+   */
+  List<T> findListById(@Param(CommonConstant.PARAM_IDS) Long[] ids);
 
-    /**
-     * 插入单条数据
-     *
-     * @param entity entity
-     * @return int
-     */
-    int insert(T entity);
+  /**
+   * 插入单条数据
+   *
+   * @param entity entity
+   * @return int
+   */
+  int insert(T entity);
 
-    /**
-     * 更新单条数据
-     *
-     * @param entity entity
-     * @return int
-     */
-    int update(T entity);
+  /**
+   * 更新单条数据
+   *
+   * @param entity entity
+   * @return int
+   */
+  int update(T entity);
 
-    /**
-     * 删除单条数据
-     *
-     * @param entity entity
-     * @return int
-     */
-    int delete(T entity);
+  /**
+   * 删除单条数据
+   *
+   * @param entity entity
+   * @return int
+   */
+  int delete(T entity);
 
-    /**
-     * 批量删除
-     *
-     * @param ids ids
-     * @return int
-     */
-    int deleteAll(@Param(CommonConstant.PARAM_IDS) Long[] ids);
+  /**
+   * 批量删除
+   *
+   * @param ids ids
+   * @return int
+   */
+  int deleteAll(@Param(CommonConstant.PARAM_IDS) Long[] ids);
 }
 

@@ -12,13 +12,13 @@ import lombok.Data;
 @Data
 public class ExaminationAuth extends BaseEntity<ExaminationAuth> {
 
-    /**
-     * 学生ID
-     */
-    private String userId;
+  /**
+   * 学生ID
+   */
+  private String userId;
 
-    /**
-     * 考试ID
-     */
-    private String examinationId;
+  /**
+   * 考试ID
+   */
+  private String examinationId;
 }

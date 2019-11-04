@@ -17,8 +17,8 @@ import org.springframework.cloud.netflix.turbine.EnableTurbine;
 @RefreshScope
 public class MonitorServiceApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(MonitorServiceApplication.class, args);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(MonitorServiceApplication.class, args);
+  }
 
 }

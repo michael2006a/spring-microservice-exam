@@ -12,13 +12,13 @@ import lombok.Data;
 @Data
 public class Pictures extends BaseEntity<Pictures> {
 
-    /**
-     * 图片地址
-     */
-    private String pictureAddress;
+  /**
+   * 图片地址
+   */
+  private String pictureAddress;
 
-    /**
-     * 附件ID
-     */
-    private String attachmentId;
+  /**
+   * 附件ID
+   */
+  private String attachmentId;
 }

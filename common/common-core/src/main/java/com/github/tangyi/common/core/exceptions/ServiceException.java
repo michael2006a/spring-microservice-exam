@@ -1,7 +1,6 @@
 package com.github.tangyi.common.core.exceptions;
 
 /**
- *
  * 服务异常
  *
  * @author tangyi
@@ -9,12 +8,12 @@ package com.github.tangyi.common.core.exceptions;
  */
 public class ServiceException extends CommonException {
 
-	private static final long serialVersionUID = -7285211528095468156L;
+  private static final long serialVersionUID = -7285211528095468156L;
 
-	public ServiceException() {
-	}
+  public ServiceException() {
+  }
 
-	public ServiceException(String msg) {
-		super(msg);
-	}
+  public ServiceException(String msg) {
+    super(msg);
+  }
 }

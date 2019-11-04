@@ -1,9 +1,8 @@
 package com.github.tangyi.auth.api.module;
 
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-
-import java.io.Serializable;
 
 /**
  * 封装微信登录状态
@@ -15,9 +14,9 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class WxSession implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    private String openId;
+  private String openId;
 
-    private String sessionKey;
+  private String sessionKey;
 }

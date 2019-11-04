@@ -1,9 +1,8 @@
 package com.github.tangyi.gateway.vo;
 
-import lombok.Data;
-
 import java.util.LinkedHashMap;
 import java.util.Map;
+import lombok.Data;
 
 /**
  * 过滤器信息
@@ -14,13 +13,13 @@ import java.util.Map;
 @Data
 public class RouteFilterVo {
 
-    /**
-     * Filter Name
-     */
-    private String name;
+  /**
+   * Filter Name
+   */
+  private String name;
 
-    /**
-     * 对应的路由规则
-     */
-    private Map<String, String> args = new LinkedHashMap<>();
+  /**
+   * 对应的路由规则
+   */
+  private Map<String, String> args = new LinkedHashMap<>();
 }

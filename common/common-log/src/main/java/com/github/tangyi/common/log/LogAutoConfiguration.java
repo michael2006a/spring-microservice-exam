@@ -18,16 +18,16 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @ConditionalOnWebApplication
 public class LogAutoConfiguration {
 
-    @Autowired
-    private UserServiceClient userServiceClient;
+  @Autowired
+  private UserServiceClient userServiceClient;
 
-    @Bean
-    public LogListener sysLogListener() {
-        return new LogListener(userServiceClient);
-    }
+  @Bean
+  public LogListener sysLogListener() {
+    return new LogListener(userServiceClient);
+  }
 
-    @Bean
-    public LogAspect sysLogAspect() {
-        return new LogAspect();
-    }
+  @Bean
+  public LogAspect sysLogAspect() {
+    return new LogAspect();
+  }
 }

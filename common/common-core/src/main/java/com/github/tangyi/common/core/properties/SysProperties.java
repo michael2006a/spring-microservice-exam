@@ -13,33 +13,33 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "sys")
 public class SysProperties {
 
-    /**
-     * fastDfs服务器的HTTP地址
-     */
-    private String fdfsHttpHost;
+  /**
+   * fastDfs服务器的HTTP地址
+   */
+  private String fdfsHttpHost;
 
-    /**
-     * 上传地址
-     */
-    private String uploadUrl;
+  /**
+   * 上传地址
+   */
+  private String uploadUrl;
 
-    /**
-     * 默认头像
-     */
-    private String defaultAvatar;
+  /**
+   * 默认头像
+   */
+  private String defaultAvatar;
 
-    /**
-     * 管理员账号
-     */
-    private String adminUser;
+  /**
+   * 管理员账号
+   */
+  private String adminUser;
 
-    /**
-     * 密码加密解密的key
-     */
-    private String key;
+  /**
+   * 密码加密解密的key
+   */
+  private String key;
 
-    /**
-     * 缓存超时时间
-     */
-    private String cacheExpire;
+  /**
+   * 缓存超时时间
+   */
+  private String cacheExpire;
 }

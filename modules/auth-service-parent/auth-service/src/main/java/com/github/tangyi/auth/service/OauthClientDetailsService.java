@@ -12,5 +12,7 @@ import org.springframework.stereotype.Service;
  * @date 2019/3/30 16:48
  */
 @Service
-public class OauthClientDetailsService extends CrudService<OauthClientDetailsMapper, OauthClientDetails> {
+public class OauthClientDetailsService extends
+    CrudService<OauthClientDetailsMapper, OauthClientDetails> {
+
 }

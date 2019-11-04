@@ -19,38 +19,35 @@ import org.springframework.stereotype.Service;
 @Lazy(false)
 public class SpringContextHolder implements ApplicationContextAware, DisposableBean {
 
-    private static ApplicationContext applicationContext = null;
+  private static ApplicationContext applicationContext = null;
 
-    /**
-     * 获取applicationContext
-     *
-     * @return
-     */
-    public static ApplicationContext getApplicationContext() {
-        if (applicationContext == null)
-            throw new CommonException("applicationContext为空！");
-        return applicationContext;
+  /**
+   * 获取applicationContext
+   */
+  public static ApplicationContext getApplicationContext() {
+    if (applicationContext == null) {
+      throw new CommonException("applicationContext为空！");
     }
+    return applicationContext;
+  }
 
-    @Override
-    public void destroy() throws Exception {
-        applicationContext = null;
-    }
+  @Override
+  public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+    SpringContextHolder.applicationContext = applicationContext;
+  }
 
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        SpringContextHolder.applicationContext = applicationContext;
+  /**
+   * 发布事件
+   */
+  public static void publishEvent(ApplicationEvent event) {
+    if (applicationContext == null) {
+      return;
     }
+    applicationContext.publishEvent(event);
+  }
 
-    /**
-     * 发布事件
-     *
-     * @param event
-     */
-    public static void publishEvent(ApplicationEvent event) {
-        if (applicationContext == null) {
-            return;
-        }
-        applicationContext.publishEvent(event);
-    }
+  @Override
+  public void destroy() throws Exception {
+    applicationContext = null;
+  }
 }

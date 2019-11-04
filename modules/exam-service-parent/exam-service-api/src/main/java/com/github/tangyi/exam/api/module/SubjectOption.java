@@ -13,19 +13,19 @@ import lombok.Data;
 @Data
 public class SubjectOption extends BaseEntity<SubjectOption> {
 
-    /**
-     * 选择题ID
-     */
-    @JsonFormat(shape = JsonFormat.Shape.STRING)
-    private Long subjectChoicesId;
+  /**
+   * 选择题ID
+   */
+  @JsonFormat(shape = JsonFormat.Shape.STRING)
+  private Long subjectChoicesId;
 
-    /**
-     * 选项名称
-     */
-    private String optionName;
+  /**
+   * 选项名称
+   */
+  private String optionName;
 
-    /**
-     * 选项内容
-     */
-    private String optionContent;
+  /**
+   * 选项内容
+   */
+  private String optionContent;
 }

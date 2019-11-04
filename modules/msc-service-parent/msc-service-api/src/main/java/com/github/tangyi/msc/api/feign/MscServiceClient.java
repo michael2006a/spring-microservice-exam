@@ -18,14 +18,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(value = ServiceConstant.MSC_SERVICE, configuration = CustomFeignConfig.class, fallbackFactory = MscServiceClientFallbackFactory.class)
 public interface MscServiceClient {
 
-    /**
-     * 发送短信
-     *
-     * @param smsDto smsDto
-     * @return ResponseBean
-     * @author tangyi
-     * @date 2019/07/02 16:07:27
-     */
-    @PostMapping("/v1/sms/sendSms")
-    ResponseBean<?> sendSms(@RequestBody SmsDto smsDto);
+  /**
+   * 发送短信
+   *
+   * @param smsDto smsDto
+   * @return ResponseBean
+   * @author tangyi
+   * @date 2019/07/02 16:07:27
+   */
+  @PostMapping("/v1/sms/sendSms")
+  ResponseBean<?> sendSms(@RequestBody SmsDto smsDto);
 }

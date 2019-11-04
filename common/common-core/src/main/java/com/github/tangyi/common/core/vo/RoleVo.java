@@ -12,10 +12,10 @@ import lombok.Data;
 @Data
 public class RoleVo extends BaseEntity<RoleVo> {
 
-    private String roleName;
+  private String roleName;
 
-    private String roleCode;
+  private String roleCode;
 
-    private String roleDesc;
+  private String roleDesc;
 
 }

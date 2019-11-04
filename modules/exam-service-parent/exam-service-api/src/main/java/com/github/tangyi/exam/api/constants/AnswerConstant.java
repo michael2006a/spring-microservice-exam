@@ -8,33 +8,33 @@ package com.github.tangyi.exam.api.constants;
  */
 public class AnswerConstant {
 
-    /**
-     * 正确
-     */
-    public static final Integer RIGHT = 0;
+  /**
+   * 正确
+   */
+  public static final Integer RIGHT = 0;
 
-    /**
-     * 错误
-     */
-    public static final Integer WRONG = 1;
+  /**
+   * 错误
+   */
+  public static final Integer WRONG = 1;
 
-    /**
-     * 待批改
-     */
-    public static final Integer TO_BE_MARKED = 0;
+  /**
+   * 待批改
+   */
+  public static final Integer TO_BE_MARKED = 0;
 
-    /**
-     * 已经批改
-     */
-    public static final Integer MARKED = 1;
+  /**
+   * 已经批改
+   */
+  public static final Integer MARKED = 1;
 
-    /**
-     * 下一题
-     */
-    public static final Integer NEXT = 0;
+  /**
+   * 下一题
+   */
+  public static final Integer NEXT = 0;
 
-    /**
-     * 上一题
-     */
-    public static final Integer PREVIOUS = 1;
+  /**
+   * 上一题
+   */
+  public static final Integer PREVIOUS = 1;
 }

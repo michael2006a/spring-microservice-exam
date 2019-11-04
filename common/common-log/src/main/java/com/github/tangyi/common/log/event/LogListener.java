@@ -15,23 +15,23 @@ import org.springframework.scheduling.annotation.Async;
  */
 public class LogListener {
 
-    @Autowired
-    private UserServiceClient userServiceClient;
+  @Autowired
+  private UserServiceClient userServiceClient;
 
-    public LogListener(UserServiceClient userServiceClient) {
-        this.userServiceClient = userServiceClient;
-    }
+  public LogListener(UserServiceClient userServiceClient) {
+    this.userServiceClient = userServiceClient;
+  }
 
-    /**
-     * 异步记录日志
-     *
-     * @param event event
-     */
-    @Async
-    @Order
-    @EventListener(LogEvent.class)
-    public void saveSysLog(LogEvent event) {
-        Log log = (Log) event.getSource();
-        userServiceClient.saveLog(log);
-    }
+  /**
+   * 异步记录日志
+   *
+   * @param event event
+   */
+  @Async
+  @Order
+  @EventListener(LogEvent.class)
+  public void saveSysLog(LogEvent event) {
+    Log log = (Log) event.getSource();
+    userServiceClient.saveLog(log);
+  }
 }

@@ -20,74 +20,74 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class ExamRecordService extends CrudService<ExamRecordMapper, ExaminationRecord> {
 
-    /**
-     * 查询考试记录
-     *
-     * @param examRecord examRecord
-     * @return ExamRecord
-     * @author tangyi
-     * @date 2019/1/3 14:10
-     */
-    @Override
-    @Cacheable(value = "record#" + CommonConstant.CACHE_EXPIRE, key = "#examRecord.id")
-    public ExaminationRecord get(ExaminationRecord examRecord) {
-        return super.get(examRecord);
-    }
+  /**
+   * 查询考试记录
+   *
+   * @param examRecord examRecord
+   * @return ExamRecord
+   * @author tangyi
+   * @date 2019/1/3 14:10
+   */
+  @Override
+  @Cacheable(value = "record#" + CommonConstant.CACHE_EXPIRE, key = "#examRecord.id")
+  public ExaminationRecord get(ExaminationRecord examRecord) {
+    return super.get(examRecord);
+  }
 
-    /**
-     * 更新考试记录
-     *
-     * @param examRecord examRecord
-     * @return ExamRecord
-     * @author tangyi
-     * @date 2019/1/3 14:10
-     */
-    @Override
-    @Transactional
-    @CacheEvict(value = "record", key = "#examRecord.id")
-    public int update(ExaminationRecord examRecord) {
-        return super.update(examRecord);
-    }
+  /**
+   * 更新考试记录
+   *
+   * @param examRecord examRecord
+   * @return ExamRecord
+   * @author tangyi
+   * @date 2019/1/3 14:10
+   */
+  @Override
+  @Transactional
+  @CacheEvict(value = "record", key = "#examRecord.id")
+  public int update(ExaminationRecord examRecord) {
+    return super.update(examRecord);
+  }
 
-    /**
-     * 删除考试记录
-     *
-     * @param examRecord examRecord
-     * @return ExamRecord
-     * @author tangyi
-     * @date 2019/1/3 14:10
-     */
-    @Override
-    @Transactional
-    @CacheEvict(value = "record", key = "#examRecord.id")
-    public int insert(ExaminationRecord examRecord) {
-        return super.insert(examRecord);
-    }
+  /**
+   * 删除考试记录
+   *
+   * @param examRecord examRecord
+   * @return ExamRecord
+   * @author tangyi
+   * @date 2019/1/3 14:10
+   */
+  @Override
+  @Transactional
+  @CacheEvict(value = "record", key = "#examRecord.id")
+  public int insert(ExaminationRecord examRecord) {
+    return super.insert(examRecord);
+  }
 
-    /**
-     * 根据用户id、考试id查找
-     *
-     * @param examRecord examRecord
-     * @return ExamRecord
-     * @author tangyi
-     * @date 2018/12/26 13:58
-     */
-    public ExaminationRecord getByUserIdAndExaminationId(ExaminationRecord examRecord) {
-        return this.dao.getByUserIdAndExaminationId(examRecord);
-    }
+  /**
+   * 根据用户id、考试id查找
+   *
+   * @param examRecord examRecord
+   * @return ExamRecord
+   * @author tangyi
+   * @date 2018/12/26 13:58
+   */
+  public ExaminationRecord getByUserIdAndExaminationId(ExaminationRecord examRecord) {
+    return this.dao.getByUserIdAndExaminationId(examRecord);
+  }
 
-    /**
-     * 批量删除
-     *
-     * @param ids ids
-     * @return int
-     * @author tangyi
-     * @date 2019/1/3 14:11
-     */
-    @Override
-    @Transactional
-    @CacheEvict(value = "record", allEntries = true)
-    public int deleteAll(Long[] ids) {
-        return super.deleteAll(ids);
-    }
+  /**
+   * 批量删除
+   *
+   * @param ids ids
+   * @return int
+   * @author tangyi
+   * @date 2019/1/3 14:11
+   */
+  @Override
+  @Transactional
+  @CacheEvict(value = "record", allEntries = true)
+  public int deleteAll(Long[] ids) {
+    return super.deleteAll(ids);
+  }
 }

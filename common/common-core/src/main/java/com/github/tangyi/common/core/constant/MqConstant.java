@@ -6,8 +6,8 @@ package com.github.tangyi.common.core.constant;
  */
 public class MqConstant {
 
-    /**
-     * 提交考试
-     */
-    public static final String SUBMIT_EXAMINATION_QUEUE = "submit_examination_queue";
+  /**
+   * 提交考试
+   */
+  public static final String SUBMIT_EXAMINATION_QUEUE = "submit_examination_queue";
 }

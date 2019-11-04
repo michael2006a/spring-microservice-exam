@@ -13,26 +13,26 @@ import lombok.Data;
 @Data
 public class ExaminationSubject extends BaseEntity<ExaminationSubject> {
 
-    /**
-     * 考试ID
-     */
-    @JsonFormat(shape = JsonFormat.Shape.STRING)
-    private Long examinationId;
+  /**
+   * 考试ID
+   */
+  @JsonFormat(shape = JsonFormat.Shape.STRING)
+  private Long examinationId;
 
-    /**
-     * 分类ID
-     */
-    @JsonFormat(shape = JsonFormat.Shape.STRING)
-    private Long categoryId;
+  /**
+   * 分类ID
+   */
+  @JsonFormat(shape = JsonFormat.Shape.STRING)
+  private Long categoryId;
 
-    /**
-     * 题目ID
-     */
-    @JsonFormat(shape = JsonFormat.Shape.STRING)
-    private Long subjectId;
+  /**
+   * 题目ID
+   */
+  @JsonFormat(shape = JsonFormat.Shape.STRING)
+  private Long subjectId;
 
-    /**
-     * 题目类型，0：选择题，1：简答题，2：判断题，3：多选题
-     */
-    private Integer type;
+  /**
+   * 题目类型，0：选择题，1：简答题，2：判断题，3：多选题
+   */
+  private Integer type;
 }

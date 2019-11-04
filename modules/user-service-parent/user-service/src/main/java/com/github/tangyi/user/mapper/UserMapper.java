@@ -14,11 +14,11 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface UserMapper extends CrudMapper<User> {
 
-    /**
-     * 查询用户数量
-     *
-     * @param userVo userVo
-     * @return Integer
-     */
-    Integer userCount(UserVo userVo);
+  /**
+   * 查询用户数量
+   *
+   * @param userVo userVo
+   * @return Integer
+   */
+  Integer userCount(UserVo userVo);
 }

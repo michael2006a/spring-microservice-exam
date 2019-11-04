@@ -12,12 +12,12 @@ import lombok.Data;
 @Data
 public class SmsResponse {
 
-    @JsonProperty("Message")
-    private String message;
+  @JsonProperty("Message")
+  private String message;
 
-    @JsonProperty("RequestId")
-    private String requestId;
+  @JsonProperty("RequestId")
+  private String requestId;
 
-    @JsonProperty("Code")
-    private String code;
+  @JsonProperty("Code")
+  private String code;
 }

@@ -1,8 +1,7 @@
 package com.github.tangyi.common.core.dto;
 
-import lombok.Data;
-
 import java.io.Serializable;
+import lombok.Data;
 
 /**
  * @author tangyi
@@ -11,25 +10,25 @@ import java.io.Serializable;
 @Data
 public class SysConfigDto implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    /**
-     * fastDfs服务器的HTTP地址
-     */
-    private String fdfsHttpHost;
+  /**
+   * fastDfs服务器的HTTP地址
+   */
+  private String fdfsHttpHost;
 
-    /**
-     * 上传地址
-     */
-    private String uploadUrl;
+  /**
+   * 上传地址
+   */
+  private String uploadUrl;
 
-    /**
-     * 默认头像
-     */
-    private String defaultAvatar;
+  /**
+   * 默认头像
+   */
+  private String defaultAvatar;
 
-    /**
-     * 管理员账号
-     */
-    private String adminUser;
+  /**
+   * 管理员账号
+   */
+  private String adminUser;
 }

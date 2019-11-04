@@ -18,62 +18,62 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class SubjectCategoryService extends CrudService<SubjectCategoryMapper, SubjectCategory> {
 
-    /**
-     * 查找题目分类
-     *
-     * @param subjectCategory subjectCategory
-     * @return SubjectCategory
-     * @author tangyi
-     * @date 2019/1/3 14:21
-     */
-    @Override
-    @Cacheable(value = "category#" + CommonConstant.CACHE_EXPIRE, key = "#subjectCategory.id")
-    public SubjectCategory get(SubjectCategory subjectCategory) {
-        return super.get(subjectCategory);
-    }
+  /**
+   * 查找题目分类
+   *
+   * @param subjectCategory subjectCategory
+   * @return SubjectCategory
+   * @author tangyi
+   * @date 2019/1/3 14:21
+   */
+  @Override
+  @Cacheable(value = "category#" + CommonConstant.CACHE_EXPIRE, key = "#subjectCategory.id")
+  public SubjectCategory get(SubjectCategory subjectCategory) {
+    return super.get(subjectCategory);
+  }
 
-    /**
-     * 更新题目分类
-     *
-     * @param subjectCategory subjectCategory
-     * @return int
-     * @author tangyi
-     * @date 2019/1/3 14:21
-     */
-    @Override
-    @Transactional
-    @CacheEvict(value = "category", key = "#subjectCategory.id")
-    public int update(SubjectCategory subjectCategory) {
-        return super.update(subjectCategory);
-    }
+  /**
+   * 更新题目分类
+   *
+   * @param subjectCategory subjectCategory
+   * @return int
+   * @author tangyi
+   * @date 2019/1/3 14:21
+   */
+  @Override
+  @Transactional
+  @CacheEvict(value = "category", key = "#subjectCategory.id")
+  public int update(SubjectCategory subjectCategory) {
+    return super.update(subjectCategory);
+  }
 
-    /**
-     * 删除题目分类
-     *
-     * @param subjectCategory subjectCategory
-     * @return int
-     * @author tangyi
-     * @date 2019/1/3 14:21
-     */
-    @Override
-    @Transactional
-    @CacheEvict(value = "category", key = "#subjectCategory.id")
-    public int delete(SubjectCategory subjectCategory) {
-        return super.delete(subjectCategory);
-    }
+  /**
+   * 删除题目分类
+   *
+   * @param subjectCategory subjectCategory
+   * @return int
+   * @author tangyi
+   * @date 2019/1/3 14:21
+   */
+  @Override
+  @Transactional
+  @CacheEvict(value = "category", key = "#subjectCategory.id")
+  public int delete(SubjectCategory subjectCategory) {
+    return super.delete(subjectCategory);
+  }
 
-    /**
-     * 批量删除题目分类
-     *
-     * @param ids ids
-     * @return int
-     * @author tangyi
-     * @date 2019/1/3 14:23
-     */
-    @Override
-    @Transactional
-    @CacheEvict(value = "category", allEntries = true)
-    public int deleteAll(Long[] ids) {
-        return super.deleteAll(ids);
-    }
+  /**
+   * 批量删除题目分类
+   *
+   * @param ids ids
+   * @return int
+   * @author tangyi
+   * @date 2019/1/3 14:23
+   */
+  @Override
+  @Transactional
+  @CacheEvict(value = "category", allEntries = true)
+  public int deleteAll(Long[] ids) {
+    return super.deleteAll(ids);
+  }
 }

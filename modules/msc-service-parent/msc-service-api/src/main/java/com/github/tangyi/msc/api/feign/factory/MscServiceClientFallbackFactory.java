@@ -14,10 +14,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class MscServiceClientFallbackFactory implements FallbackFactory<MscServiceClient> {
 
-    @Override
-    public MscServiceClient create(Throwable throwable) {
-        MscServiceClientFallbackImpl mscServiceClientFallback = new MscServiceClientFallbackImpl();
-        mscServiceClientFallback.setThrowable(throwable);
-        return mscServiceClientFallback;
-    }
+  @Override
+  public MscServiceClient create(Throwable throwable) {
+    MscServiceClientFallbackImpl mscServiceClientFallback = new MscServiceClientFallbackImpl();
+    mscServiceClientFallback.setThrowable(throwable);
+    return mscServiceClientFallback;
+  }
 }

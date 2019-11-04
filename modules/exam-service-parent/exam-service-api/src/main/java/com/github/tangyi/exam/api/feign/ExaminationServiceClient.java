@@ -19,20 +19,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(name = ServiceConstant.EXAM_SERVICE, configuration = CustomFeignConfig.class, fallback = ExaminationServiceClientFallbackImpl.class)
 public interface ExaminationServiceClient {
 
-    /**
-     * 查询考试数量
-     *
-     * @param tenantCode 租户标识
-     * @return ResponseBean
-     */
-    @GetMapping("/v1/examination/examinationCount")
-    ResponseBean<Integer> findExaminationCount(@RequestParam("tenantCode") String tenantCode);
+  /**
+   * 查询考试数量
+   *
+   * @param tenantCode 租户标识
+   * @return ResponseBean
+   */
+  @GetMapping("/v1/examination/examinationCount")
+  ResponseBean<Integer> findExaminationCount(@RequestParam("tenantCode") String tenantCode);
 
-    /**
-     * 查询参与人数
-     * @param tenantCode tenantCode
-     * @return ResponseBean
-     */
-    @GetMapping("/v1/examination/examUserCount")
-    ResponseBean<Integer> findExamUserCount(@RequestParam("tenantCode") String tenantCode);
+  /**
+   * 查询参与人数
+   *
+   * @param tenantCode tenantCode
+   * @return ResponseBean
+   */
+  @GetMapping("/v1/examination/examUserCount")
+  ResponseBean<Integer> findExamUserCount(@RequestParam("tenantCode") String tenantCode);
 }

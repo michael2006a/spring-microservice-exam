@@ -24,20 +24,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/v1/sysConfig")
 public class SysConfigController extends BaseController {
 
-    private final SysProperties sysProperties;
+  private final SysProperties sysProperties;
 
-    /**
-     * 获取系统配置
-     *
-     * @return ResponseBean
-     * @author tangyi
-     * @date 2019/2/28 17:31
-     */
-    @GetMapping
-    @ApiOperation(value = "获取系统配置", notes = "获取系统配置")
-    public ResponseBean<SysConfigDto> getSysConfig() {
-        SysConfigDto sysConfigDto = new SysConfigDto();
-        BeanUtils.copyProperties(sysProperties, sysConfigDto);
-        return new ResponseBean<>(sysConfigDto);
-    }
+  /**
+   * 获取系统配置
+   *
+   * @return ResponseBean
+   * @author tangyi
+   * @date 2019/2/28 17:31
+   */
+  @GetMapping
+  @ApiOperation(value = "获取系统配置", notes = "获取系统配置")
+  public ResponseBean<SysConfigDto> getSysConfig() {
+    SysConfigDto sysConfigDto = new SysConfigDto();
+    BeanUtils.copyProperties(sysProperties, sysConfigDto);
+    return new ResponseBean<>(sysConfigDto);
+  }
 }

@@ -16,8 +16,8 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 @EnableCircuitBreaker
 public class ExamServiceApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(ExamServiceApplication.class, args);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(ExamServiceApplication.class, args);
+  }
 
 }

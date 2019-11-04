@@ -9,7 +9,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 
-@SpringBootApplication(scanBasePackages = {CommonConstant.BASE_PACKAGE}, exclude = {DataSourceAutoConfiguration.class})
+@SpringBootApplication(scanBasePackages = {CommonConstant.BASE_PACKAGE}, exclude = {
+    DataSourceAutoConfiguration.class})
 @EnableDiscoveryClient
 // 扫描api包里的FeignClient
 @EnableFeignClients(basePackages = {CommonConstant.BASE_PACKAGE})
@@ -17,8 +18,8 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 @EnableCircuitBreaker
 public class MscServiceApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(MscServiceApplication.class, args);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(MscServiceApplication.class, args);
+  }
 
 }

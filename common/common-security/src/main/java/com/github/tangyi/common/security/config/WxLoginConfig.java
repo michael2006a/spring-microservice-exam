@@ -21,33 +21,37 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 @Configuration
 public class WxLoginConfig {
 
-    /**
-     * 配置微信登录
-     *
-     * @return WxSecurityConfigurer
-     */
-    @Bean
-    public WxSecurityConfigurer wxSecurityConfigurer(@Lazy PasswordEncoder encoder, @Lazy ClientDetailsService clientDetailsService,
-                                                     @Lazy CustomUserDetailsService userDetailsService, @Lazy ObjectMapper objectMapper,
-                                                     @Lazy AuthorizationServerTokenServices defaultAuthorizationServerTokenServices) {
-        WxSecurityConfigurer wxSecurityConfigurer = new WxSecurityConfigurer();
-        wxSecurityConfigurer.setWxLoginSuccessHandler(wxLoginSuccessHandler(encoder, clientDetailsService, objectMapper, defaultAuthorizationServerTokenServices));
-        wxSecurityConfigurer.setUserDetailsService(userDetailsService);
-        return wxSecurityConfigurer;
-    }
+  /**
+   * 配置微信登录
+   *
+   * @return WxSecurityConfigurer
+   */
+  @Bean
+  public WxSecurityConfigurer wxSecurityConfigurer(@Lazy PasswordEncoder encoder,
+      @Lazy ClientDetailsService clientDetailsService,
+      @Lazy CustomUserDetailsService userDetailsService, @Lazy ObjectMapper objectMapper,
+      @Lazy AuthorizationServerTokenServices defaultAuthorizationServerTokenServices) {
+    WxSecurityConfigurer wxSecurityConfigurer = new WxSecurityConfigurer();
+    wxSecurityConfigurer.setWxLoginSuccessHandler(
+        wxLoginSuccessHandler(encoder, clientDetailsService, objectMapper,
+            defaultAuthorizationServerTokenServices));
+    wxSecurityConfigurer.setUserDetailsService(userDetailsService);
+    return wxSecurityConfigurer;
+  }
 
-    /**
-     * 微信登录成功后的处理
-     *
-     * @return AuthenticationSuccessHandler
-     */
-    @Bean
-    public AuthenticationSuccessHandler wxLoginSuccessHandler(PasswordEncoder encoder, ClientDetailsService clientDetailsService, ObjectMapper objectMapper,
-                                                              AuthorizationServerTokenServices defaultAuthorizationServerTokenServices) {
-        return WxLoginSuccessHandler.builder()
-                .objectMapper(objectMapper)
-                .clientDetailsService(clientDetailsService)
-                .passwordEncoder(encoder)
-                .defaultAuthorizationServerTokenServices(defaultAuthorizationServerTokenServices).build();
-    }
+  /**
+   * 微信登录成功后的处理
+   *
+   * @return AuthenticationSuccessHandler
+   */
+  @Bean
+  public AuthenticationSuccessHandler wxLoginSuccessHandler(PasswordEncoder encoder,
+      ClientDetailsService clientDetailsService, ObjectMapper objectMapper,
+      AuthorizationServerTokenServices defaultAuthorizationServerTokenServices) {
+    return WxLoginSuccessHandler.builder()
+        .objectMapper(objectMapper)
+        .clientDetailsService(clientDetailsService)
+        .passwordEncoder(encoder)
+        .defaultAuthorizationServerTokenServices(defaultAuthorizationServerTokenServices).build();
+  }
 }

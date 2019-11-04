@@ -14,10 +14,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserServiceClientFallbackFactory implements FallbackFactory<UserServiceClient> {
 
-    @Override
-    public UserServiceClient create(Throwable throwable) {
-        UserServiceClientFallbackImpl userServiceClientFallback = new UserServiceClientFallbackImpl();
-        userServiceClientFallback.setThrowable(throwable);
-        return userServiceClientFallback;
-    }
+  @Override
+  public UserServiceClient create(Throwable throwable) {
+    UserServiceClientFallbackImpl userServiceClientFallback = new UserServiceClientFallbackImpl();
+    userServiceClientFallback.setThrowable(throwable);
+    return userServiceClientFallback;
+  }
 }

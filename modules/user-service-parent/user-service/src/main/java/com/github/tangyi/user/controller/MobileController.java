@@ -26,20 +26,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/v1/mobile")
 public class MobileController extends BaseController {
 
-    private final MobileService mobileService;
+  private final MobileService mobileService;
 
-    /**
-     * 发送短信
-     *
-     * @param mobile     mobile
-     * @return ResponseBean
-     * @author tangyi
-     * @date 2019/07/02 09:49:05
-     */
-    @GetMapping("sendSms/{mobile}")
-    @ApiOperation(value = "发送短信", notes = "发送短信到指定的手机号")
-    @ApiImplicitParam(name = "mobile", value = "mobile", required = true, dataType = "String", paramType = "path")
-    public ResponseBean<Boolean> sendSms(@PathVariable String mobile) {
-        return mobileService.sendSms(mobile);
-    }
+  /**
+   * 发送短信
+   *
+   * @param mobile mobile
+   * @return ResponseBean
+   * @author tangyi
+   * @date 2019/07/02 09:49:05
+   */
+  @GetMapping("sendSms/{mobile}")
+  @ApiOperation(value = "发送短信", notes = "发送短信到指定的手机号")
+  @ApiImplicitParam(name = "mobile", value = "mobile", required = true, dataType = "String", paramType = "path")
+  public ResponseBean<Boolean> sendSms(@PathVariable String mobile) {
+    return mobileService.sendSms(mobile);
+  }
 }

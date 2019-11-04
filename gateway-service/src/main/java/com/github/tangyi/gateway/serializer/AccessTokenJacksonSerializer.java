@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import com.github.tangyi.gateway.model.AccessToken;
-
 import java.io.IOException;
 
 /**
@@ -13,20 +12,21 @@ import java.io.IOException;
  */
 public class AccessTokenJacksonSerializer extends StdSerializer<AccessToken> {
 
-    public AccessTokenJacksonSerializer() {
-        super(AccessToken.class);
-    }
+  public AccessTokenJacksonSerializer() {
+    super(AccessToken.class);
+  }
 
-    @Override
-    public void serialize(AccessToken accessToken, JsonGenerator gen, SerializerProvider provider) throws IOException {
-        gen.writeStartObject();
-        gen.writeStringField("access_token", accessToken.getJti());
-        gen.writeNumberField("expires_in", accessToken.getExpiresIn());
-        gen.writeStringField("refresh_token", accessToken.getJti());
-        gen.writeStringField("scope", accessToken.getScope());
-        gen.writeStringField("token_type", accessToken.getTokenType());
-        gen.writeStringField("tenantCode", accessToken.getTenantCode());
-        gen.writeStringField("loginType", accessToken.getLoginType());
-        gen.writeEndObject();
-    }
+  @Override
+  public void serialize(AccessToken accessToken, JsonGenerator gen, SerializerProvider provider)
+      throws IOException {
+    gen.writeStartObject();
+    gen.writeStringField("access_token", accessToken.getJti());
+    gen.writeNumberField("expires_in", accessToken.getExpiresIn());
+    gen.writeStringField("refresh_token", accessToken.getJti());
+    gen.writeStringField("scope", accessToken.getScope());
+    gen.writeStringField("token_type", accessToken.getTokenType());
+    gen.writeStringField("tenantCode", accessToken.getTenantCode());
+    gen.writeStringField("loginType", accessToken.getLoginType());
+    gen.writeEndObject();
+  }
 }

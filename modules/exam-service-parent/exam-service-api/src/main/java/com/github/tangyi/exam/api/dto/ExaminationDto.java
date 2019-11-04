@@ -13,6 +13,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ExaminationDto extends Examination {
 
-    private Course course;
+  private Course course;
 
 }

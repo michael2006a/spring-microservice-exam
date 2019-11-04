@@ -9,35 +9,35 @@ services:
     command: consul agent -server -client 0.0.0.0 -ui -bootstrap-expect=3 -data-dir=/consul/data -retry-join=consul2 -retry-join=consul3 -datacenter=blr
     restart: always
     ports:
-      - "8300:8300"
-      - "8400:8400"
-      - "8500:8500"
-      - "8600:8600/udp"
+    - "8300:8300"
+    - "8400:8400"
+    - "8500:8500"
+    - "8600:8600/udp"
     networks:
-      - net
+    - net
   consul2:
     image: consul:latest
     container_name: consul-2
     expose:
-      - "8500"
-      - "8600"
+    - "8500"
+    - "8600"
     command: consul agent -server -data-dir=/consul/data -retry-join=consul -retry-join=consul3 -datacenter=blr
     links:
-      - consul
+    - consul
     networks:
-      - net
+    - net
   consul3:
     image: consul:latest
     container_name: consul-3
     expose:
-      - "8500"
-      - "8600"
+    - "8500"
+    - "8600"
     command: consul agent -server -data-dir=/consul/data -retry-join=consul -retry-join=consul2 -datacenter=blr
     links:
-      - consul
-      - consul2
+    - consul
+    - consul2
     networks:
-      - net
+    - net
 
   # ---------------------------
   # rabbitMq
@@ -47,13 +47,13 @@ services:
     container_name: rabbit-mq
     restart: always
     ports:
-      - "5672:5672"
-      - "15672:15672"
+    - "5672:5672"
+    - "15672:15672"
     environment:
-      - RABBITMQ_DEFAULT_USER=guest
-      - RABBITMQ_DEFAULT_PASS=guest
+    - RABBITMQ_DEFAULT_USER=guest
+    - RABBITMQ_DEFAULT_PASS=guest
     networks:
-      - net
+    - net
 
   # ---------------------------
   # Redis
@@ -64,12 +64,12 @@ services:
     restart: always
     command: redis-server /usr/local/etc/redis/redis.conf
     ports:
-      - "6379:6379"
+    - "6379:6379"
     volumes:
-      - ./redis-data:/data
-      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    - ./redis-data:/data
+    - ./redis.conf:/usr/local/etc/redis/redis.conf
     networks:
-      - net
+    - net
 
   # ---------------------------
   # 配置中心
@@ -80,13 +80,13 @@ services:
     env_file: docker-compose.env  # 从文件中获取配置
     restart: always
     depends_on:
-      - consul
-      - rabbit
-      - redis
+    - consul
+    - rabbit
+    - redis
     ports:
-      - "9181:9181"
+    - "9181:9181"
     networks:
-      - net
+    - net
 
 networks:
   net:

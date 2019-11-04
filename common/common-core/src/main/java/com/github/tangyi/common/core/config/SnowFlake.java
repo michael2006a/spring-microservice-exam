@@ -15,11 +15,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SnowFlake {
 
-    @Autowired
-    private SnowflakeProperties snowflakeProperties;
+  @Autowired
+  private SnowflakeProperties snowflakeProperties;
 
-    @Bean
-    public SnowflakeIdWorker initTokenWorker() {
-        return new SnowflakeIdWorker(Integer.parseInt(snowflakeProperties.getWorkId()), Integer.parseInt(snowflakeProperties.getDataCenterId()));
-    }
+  @Bean
+  public SnowflakeIdWorker initTokenWorker() {
+    return new SnowflakeIdWorker(Integer.parseInt(snowflakeProperties.getWorkId()),
+        Integer.parseInt(snowflakeProperties.getDataCenterId()));
+  }
 }

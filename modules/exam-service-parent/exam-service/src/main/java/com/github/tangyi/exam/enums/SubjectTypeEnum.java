@@ -8,52 +8,52 @@ package com.github.tangyi.exam.enums;
  */
 public enum SubjectTypeEnum {
 
-    /**
-     * 选择题
-     */
-    CHOICES(0),
+  /**
+   * 选择题
+   */
+  CHOICES(0),
 
-    /**
-     * 简答题
-     */
-    SHORT_ANSWER(1),
+  /**
+   * 简答题
+   */
+  SHORT_ANSWER(1),
 
-    /**
-     * 判断题
-     */
-    JUDGEMENT(2),
+  /**
+   * 判断题
+   */
+  JUDGEMENT(2),
 
-    /**
-     * 多选题
-     */
-    MULTIPLE_CHOICES(3);
+  /**
+   * 多选题
+   */
+  MULTIPLE_CHOICES(3);
 
-    SubjectTypeEnum(Integer value) {
-        this.value = value;
+  private Integer value;
+
+  SubjectTypeEnum(Integer value) {
+    this.value = value;
+  }
+
+  /**
+   * 根据类型返回具体的SubjectType
+   *
+   * @param type type
+   * @return SubjectType
+   */
+  public static SubjectTypeEnum match(Integer type) {
+    for (SubjectTypeEnum item : SubjectTypeEnum.values()) {
+      if (item.value.equals(type)) {
+        return item;
+      }
     }
+    return null;
+  }
 
-    private Integer value;
+  public Integer getValue() {
+    return value;
+  }
 
-    /**
-     * 根据类型返回具体的SubjectType
-     *
-     * @param type type
-     * @return SubjectType
-     */
-    public static SubjectTypeEnum match(Integer type) {
-        for (SubjectTypeEnum item : SubjectTypeEnum.values()) {
-            if (item.value.equals(type)) {
-                return item;
-            }
-        }
-        return null;
-    }
-
-    public Integer getValue() {
-        return value;
-    }
-
-    public void setValue(Integer value) {
-        this.value = value;
-    }
+  public void setValue(Integer value) {
+    this.value = value;
+  }
 }

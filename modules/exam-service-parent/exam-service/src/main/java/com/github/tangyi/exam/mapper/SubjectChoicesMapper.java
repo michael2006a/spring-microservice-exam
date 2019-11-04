@@ -13,23 +13,23 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface SubjectChoicesMapper extends CrudMapper<SubjectChoices> {
 
-    /**
-     * 物理删除
-     *
-     * @param subjectChoices subjectChoices
-     * @return int
-     * @author tangyi
-     * @date 2019/06/16 22:44
-     */
-    int physicalDelete(SubjectChoices subjectChoices);
+  /**
+   * 物理删除
+   *
+   * @param subjectChoices subjectChoices
+   * @return int
+   * @author tangyi
+   * @date 2019/06/16 22:44
+   */
+  int physicalDelete(SubjectChoices subjectChoices);
 
-    /**
-     * 物理批量删除
-     *
-     * @param ids ids
-     * @return int
-     * @author tangyi
-     * @date 2019/06/16 22:44
-     */
-    int physicalDeleteAll(Long[] ids);
+  /**
+   * 物理批量删除
+   *
+   * @param ids ids
+   * @return int
+   * @author tangyi
+   * @date 2019/06/16 22:44
+   */
+  int physicalDeleteAll(Long[] ids);
 }

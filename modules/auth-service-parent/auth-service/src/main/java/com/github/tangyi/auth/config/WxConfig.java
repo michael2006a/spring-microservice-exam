@@ -19,24 +19,24 @@ import org.springframework.context.annotation.Configuration;
 @AllArgsConstructor
 public class WxConfig {
 
-    /**
-     * 微信的配置，如appId，appSecret，sessionHost
-     */
-    private final WxProperties wxProperties;
+  /**
+   * 微信的配置，如appId，appSecret，sessionHost
+   */
+  private final WxProperties wxProperties;
 
-    @Bean
-    public WxMaConfig wxMaConfig() {
-        WxMaInMemoryConfig config = new WxMaInMemoryConfig();
-        config.setAppid(wxProperties.getAppId());
-        config.setSecret(wxProperties.getAppSecret());
-        return config;
-    }
+  @Bean
+  public WxMaConfig wxMaConfig() {
+    WxMaInMemoryConfig config = new WxMaInMemoryConfig();
+    config.setAppid(wxProperties.getAppId());
+    config.setSecret(wxProperties.getAppSecret());
+    return config;
+  }
 
-    @Bean
-    public WxMaService wxMaService(WxMaConfig maConfig) {
-        WxMaService service = new WxMaServiceImpl();
-        service.setWxMaConfig(maConfig);
-        return service;
-    }
+  @Bean
+  public WxMaService wxMaService(WxMaConfig maConfig) {
+    WxMaService service = new WxMaServiceImpl();
+    service.setWxMaConfig(maConfig);
+    return service;
+  }
 
 }

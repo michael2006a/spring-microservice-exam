@@ -14,13 +14,13 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitSubmitExaminationConfig {
 
-    /**
-     * 提交考试队列
-     *
-     * @return Queue
-     */
-    @Bean
-    public Queue submitExaminationQueue() {
-        return new Queue(MqConstant.SUBMIT_EXAMINATION_QUEUE);
-    }
+  /**
+   * 提交考试队列
+   *
+   * @return Queue
+   */
+  @Bean
+  public Queue submitExaminationQueue() {
+    return new Queue(MqConstant.SUBMIT_EXAMINATION_QUEUE);
+  }
 }

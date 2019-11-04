@@ -18,62 +18,62 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class CourseService extends CrudService<CourseMapper, Course> {
 
-    /**
-     * 获取课程信息
-     *
-     * @param course course
-     * @return Course
-     * @author tangyi
-     * @date 2018/12/03 21:30
-     */
-    @Override
-    @Cacheable(value = "course#" + CommonConstant.CACHE_EXPIRE, key = "#course.id")
-    public Course get(Course course) {
-        return super.get(course);
-    }
+  /**
+   * 获取课程信息
+   *
+   * @param course course
+   * @return Course
+   * @author tangyi
+   * @date 2018/12/03 21:30
+   */
+  @Override
+  @Cacheable(value = "course#" + CommonConstant.CACHE_EXPIRE, key = "#course.id")
+  public Course get(Course course) {
+    return super.get(course);
+  }
 
-    /**
-     * 更新课程信息
-     *
-     * @param course course
-     * @return int
-     * @author tangyi
-     * @date 2018/12/03 21:32
-     */
-    @Override
-    @Transactional
-    @CacheEvict(value = "course", key = "#course.id")
-    public int update(Course course) {
-        return super.update(course);
-    }
+  /**
+   * 更新课程信息
+   *
+   * @param course course
+   * @return int
+   * @author tangyi
+   * @date 2018/12/03 21:32
+   */
+  @Override
+  @Transactional
+  @CacheEvict(value = "course", key = "#course.id")
+  public int update(Course course) {
+    return super.update(course);
+  }
 
-    /**
-     * 删除课程信息
-     *
-     * @param course course
-     * @return int
-     * @author tangyi
-     * @date 2018/12/03 21:32
-     */
-    @Override
-    @Transactional
-    @CacheEvict(value = "course", key = "#course.id")
-    public int delete(Course course) {
-        return super.delete(course);
-    }
+  /**
+   * 删除课程信息
+   *
+   * @param course course
+   * @return int
+   * @author tangyi
+   * @date 2018/12/03 21:32
+   */
+  @Override
+  @Transactional
+  @CacheEvict(value = "course", key = "#course.id")
+  public int delete(Course course) {
+    return super.delete(course);
+  }
 
-    /**
-     * 批量删除
-     *
-     * @param ids ids
-     * @return int
-     * @author tangyi
-     * @date 2019/1/3 14:05
-     */
-    @Override
-    @Transactional
-    @CacheEvict(value = "course", allEntries = true)
-    public int deleteAll(Long[] ids) {
-        return super.deleteAll(ids);
-    }
+  /**
+   * 批量删除
+   *
+   * @param ids ids
+   * @return int
+   * @author tangyi
+   * @date 2019/1/3 14:05
+   */
+  @Override
+  @Transactional
+  @CacheEvict(value = "course", allEntries = true)
+  public int deleteAll(Long[] ids) {
+    return super.deleteAll(ids);
+  }
 }

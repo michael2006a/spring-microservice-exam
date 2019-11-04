@@ -6,17 +6,17 @@ package com.github.tangyi.common.core.utils;
  */
 public class Assert {
 
-    /**
-     * 非空校验
-     *
-     * @param object  object
-     * @param message message
-     * @author tangyi
-     * @date 2019/01/23 20:00
-     */
-    public static void notNull(Object object, String message) {
-        if (object == null) {
-            throw new IllegalArgumentException(message);
-        }
+  /**
+   * 非空校验
+   *
+   * @param object object
+   * @param message message
+   * @author tangyi
+   * @date 2019/01/23 20:00
+   */
+  public static void notNull(Object object, String message) {
+    if (object == null) {
+      throw new IllegalArgumentException(message);
     }
+  }
 }

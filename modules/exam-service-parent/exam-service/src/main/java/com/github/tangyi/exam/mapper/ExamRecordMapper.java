@@ -13,13 +13,13 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface ExamRecordMapper extends CrudMapper<ExaminationRecord> {
 
-    /**
-     * 根据用户id、考试id查找
-     *
-     * @param examRecord examRecord
-     * @return Score
-     * @author tangyi
-     * @date 2018/12/26 13:56
-     */
-    ExaminationRecord getByUserIdAndExaminationId(ExaminationRecord examRecord);
+  /**
+   * 根据用户id、考试id查找
+   *
+   * @param examRecord examRecord
+   * @return Score
+   * @author tangyi
+   * @date 2018/12/26 13:56
+   */
+  ExaminationRecord getByUserIdAndExaminationId(ExaminationRecord examRecord);
 }

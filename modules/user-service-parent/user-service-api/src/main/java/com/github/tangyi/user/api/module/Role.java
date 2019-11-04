@@ -1,9 +1,8 @@
 package com.github.tangyi.user.api.module;
 
 import com.github.tangyi.common.core.persistence.BaseEntity;
-import lombok.Data;
-
 import javax.validation.constraints.NotBlank;
+import lombok.Data;
 
 /**
  * 角色
@@ -14,22 +13,22 @@ import javax.validation.constraints.NotBlank;
 @Data
 public class Role extends BaseEntity<Role> {
 
-    @NotBlank(message = "角色名称不能为空")
-    private String roleName;
+  @NotBlank(message = "角色名称不能为空")
+  private String roleName;
 
-    @NotBlank(message = "角色标识不能为空")
-    private String roleCode;
+  @NotBlank(message = "角色标识不能为空")
+  private String roleCode;
 
-    private String roleDesc;
+  private String roleDesc;
 
-    private Integer status;
+  private Integer status;
 
-    private String deptName;
+  private String deptName;
 
-    private String menuIds;
+  private String menuIds;
 
-    /**
-     * 是否默认 0-否，1-是
-     */
-    private Integer isDefault;
+  /**
+   * 是否默认 0-否，1-是
+   */
+  private Integer isDefault;
 }

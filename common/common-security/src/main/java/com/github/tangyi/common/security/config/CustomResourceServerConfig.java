@@ -21,48 +21,50 @@ import org.springframework.security.oauth2.provider.error.OAuth2AccessDeniedHand
 @EnableResourceServer
 public class CustomResourceServerConfig extends ResourceServerConfigurerAdapter {
 
-    private static final String RESOURCE_ID = "resource_id";
+  private static final String RESOURCE_ID = "resource_id";
 
-    /**
-     * 开放权限的URL
-     */
-    private final FilterIgnorePropertiesConfig filterIgnorePropertiesConfig;
+  /**
+   * 开放权限的URL
+   */
+  private final FilterIgnorePropertiesConfig filterIgnorePropertiesConfig;
 
-    /**
-     * 手机登录配置
-     */
-    private final MobileSecurityConfigurer mobileSecurityConfigurer;
+  /**
+   * 手机登录配置
+   */
+  private final MobileSecurityConfigurer mobileSecurityConfigurer;
 
-    /**
-     * 微信登录配置
-     */
-    private final WxSecurityConfigurer wxSecurityConfigurer;
+  /**
+   * 微信登录配置
+   */
+  private final WxSecurityConfigurer wxSecurityConfigurer;
 
-    @Autowired
-    public CustomResourceServerConfig(FilterIgnorePropertiesConfig filterIgnorePropertiesConfig, MobileSecurityConfigurer mobileSecurityConfigurer, WxSecurityConfigurer wxSecurityConfigurer) {
-        this.filterIgnorePropertiesConfig = filterIgnorePropertiesConfig;
-        this.mobileSecurityConfigurer = mobileSecurityConfigurer;
-        this.wxSecurityConfigurer = wxSecurityConfigurer;
-    }
+  @Autowired
+  public CustomResourceServerConfig(FilterIgnorePropertiesConfig filterIgnorePropertiesConfig,
+      MobileSecurityConfigurer mobileSecurityConfigurer,
+      WxSecurityConfigurer wxSecurityConfigurer) {
+    this.filterIgnorePropertiesConfig = filterIgnorePropertiesConfig;
+    this.mobileSecurityConfigurer = mobileSecurityConfigurer;
+    this.wxSecurityConfigurer = wxSecurityConfigurer;
+  }
 
-    @Override
-    public void configure(ResourceServerSecurityConfigurer resources) {
-        resources.resourceId(RESOURCE_ID).stateless(false);
-    }
+  @Override
+  public void configure(ResourceServerSecurityConfigurer resources) {
+    resources.resourceId(RESOURCE_ID).stateless(false);
+  }
 
-    @Override
-    public void configure(HttpSecurity http) throws Exception {
-        String[] ignores = new String[filterIgnorePropertiesConfig.getUrls().size()];
-        http
-                .csrf().disable()
-                .httpBasic().disable()
-                .authorizeRequests()
-                .antMatchers(filterIgnorePropertiesConfig.getUrls().toArray(ignores)).permitAll()
-                .anyRequest().authenticated()
-                .and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
-        // 手机号登录
-        http.apply(mobileSecurityConfigurer);
-        // 微信登录
-        http.apply(wxSecurityConfigurer);
-    }
+  @Override
+  public void configure(HttpSecurity http) throws Exception {
+    String[] ignores = new String[filterIgnorePropertiesConfig.getUrls().size()];
+    http
+        .csrf().disable()
+        .httpBasic().disable()
+        .authorizeRequests()
+        .antMatchers(filterIgnorePropertiesConfig.getUrls().toArray(ignores)).permitAll()
+        .anyRequest().authenticated()
+        .and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
+    // 手机号登录
+    http.apply(mobileSecurityConfigurer);
+    // 微信登录
+    http.apply(wxSecurityConfigurer);
+  }
 }

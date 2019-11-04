@@ -20,26 +20,31 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Data
 public class MobileAuthenticationProvider implements AuthenticationProvider {
 
-    private MessageSourceAccessor messages = SpringSecurityMessageSource.getAccessor();
+  private MessageSourceAccessor messages = SpringSecurityMessageSource.getAccessor();
 
-    private CustomUserDetailsService customUserDetailsService;
+  private CustomUserDetailsService customUserDetailsService;
 
-    @Override
-    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        MobileAuthenticationToken mobileAuthenticationToken = (MobileAuthenticationToken) authentication;
-        String principal = mobileAuthenticationToken.getPrincipal().toString();
-        UserDetails userDetails = customUserDetailsService.loadUserBySocialAndTenantCode(principal, TenantContextHolder.getTenantCode(), mobileAuthenticationToken.getMobileUser());
-        if (userDetails == null) {
-            log.debug("Authentication failed: no credentials provided");
-            throw new BadCredentialsException(messages.getMessage("AbstractUserDetailsAuthenticationProvider.noopBindAccount", "Noop Bind Account"));
-        }
-        MobileAuthenticationToken authenticationToken = new MobileAuthenticationToken(userDetails, userDetails.getAuthorities());
-        authenticationToken.setDetails(mobileAuthenticationToken.getDetails());
-        return authenticationToken;
+  @Override
+  public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+    MobileAuthenticationToken mobileAuthenticationToken = (MobileAuthenticationToken) authentication;
+    String principal = mobileAuthenticationToken.getPrincipal().toString();
+    UserDetails userDetails = customUserDetailsService
+        .loadUserBySocialAndTenantCode(principal, TenantContextHolder.getTenantCode(),
+            mobileAuthenticationToken.getMobileUser());
+    if (userDetails == null) {
+      log.debug("Authentication failed: no credentials provided");
+      throw new BadCredentialsException(messages
+          .getMessage("AbstractUserDetailsAuthenticationProvider.noopBindAccount",
+              "Noop Bind Account"));
     }
+    MobileAuthenticationToken authenticationToken = new MobileAuthenticationToken(userDetails,
+        userDetails.getAuthorities());
+    authenticationToken.setDetails(mobileAuthenticationToken.getDetails());
+    return authenticationToken;
+  }
 
-    @Override
-    public boolean supports(Class<?> authentication) {
-        return MobileAuthenticationToken.class.isAssignableFrom(authentication);
-    }
+  @Override
+  public boolean supports(Class<?> authentication) {
+    return MobileAuthenticationToken.class.isAssignableFrom(authentication);
+  }
 }

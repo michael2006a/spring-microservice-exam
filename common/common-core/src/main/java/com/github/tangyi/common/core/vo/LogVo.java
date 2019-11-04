@@ -13,7 +13,7 @@ import lombok.Data;
 @Data
 public class LogVo extends BaseEntity<LogVo> {
 
-    private Log log;
+  private Log log;
 
-    private String username;
+  private String username;
 }

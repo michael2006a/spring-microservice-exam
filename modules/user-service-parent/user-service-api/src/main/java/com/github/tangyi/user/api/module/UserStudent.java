@@ -12,18 +12,18 @@ import lombok.Data;
 @Data
 public class UserStudent extends BaseEntity<UserStudent> {
 
-    /**
-     * 用户id
-     */
-    private Long userId;
+  /**
+   * 用户id
+   */
+  private Long userId;
 
-    /**
-     * 学生id
-     */
-    private Long studentId;
+  /**
+   * 学生id
+   */
+  private Long studentId;
 
-    /**
-     * 关系类型
-     */
-    private Integer relationshipType;
+  /**
+   * 关系类型
+   */
+  private Integer relationshipType;
 }

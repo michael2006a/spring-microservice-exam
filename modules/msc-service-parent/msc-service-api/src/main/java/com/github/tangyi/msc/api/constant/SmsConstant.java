@@ -6,8 +6,8 @@ package com.github.tangyi.msc.api.constant;
  */
 public class SmsConstant {
 
-    /**
-     * 短信模板
-     */
-    public static final String SMS_TEMPLATE = "{\"code\":\"%s\"}";
+  /**
+   * 短信模板
+   */
+  public static final String SMS_TEMPLATE = "{\"code\":\"%s\"}";
 }

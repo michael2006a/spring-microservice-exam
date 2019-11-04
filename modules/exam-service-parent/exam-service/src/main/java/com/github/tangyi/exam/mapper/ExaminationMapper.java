@@ -13,23 +13,23 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface ExaminationMapper extends CrudMapper<Examination> {
 
-    /**
-     * 查询考试数量
-     *
-     * @param examination examination
-     * @return int
-     * @author tangyi
-     * @date 2019/3/1 15:32
-     */
-    int findExaminationCount(Examination examination);
+  /**
+   * 查询考试数量
+   *
+   * @param examination examination
+   * @return int
+   * @author tangyi
+   * @date 2019/3/1 15:32
+   */
+  int findExaminationCount(Examination examination);
 
-    /**
-     * 查询参与考试人数
-     *
-     * @param examination examination
-     * @return int
-     * @author tangyi
-     * @date 2019/10/27 20:08:58
-     */
-    int findExamUserCount(Examination examination);
+  /**
+   * 查询参与考试人数
+   *
+   * @param examination examination
+   * @return int
+   * @author tangyi
+   * @date 2019/10/27 20:08:58
+   */
+  int findExamUserCount(Examination examination);
 }

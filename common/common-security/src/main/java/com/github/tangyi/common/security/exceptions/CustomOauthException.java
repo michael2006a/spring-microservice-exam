@@ -15,13 +15,13 @@ import org.springframework.security.oauth2.common.exceptions.OAuth2Exception;
 @JsonSerialize(using = CustomOauthExceptionSerializer.class)
 public class CustomOauthException extends OAuth2Exception {
 
-    /**
-     * 错误码
-     */
-    private int code;
+  /**
+   * 错误码
+   */
+  private int code;
 
-    public CustomOauthException(String msg, int code) {
-        super(msg);
-        this.code = code;
-    }
+  public CustomOauthException(String msg, int code) {
+    super(msg);
+    this.code = code;
+  }
 }

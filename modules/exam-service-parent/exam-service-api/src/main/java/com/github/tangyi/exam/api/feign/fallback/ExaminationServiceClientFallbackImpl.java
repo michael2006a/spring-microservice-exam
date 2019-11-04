@@ -16,25 +16,25 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Service
 public class ExaminationServiceClientFallbackImpl implements ExaminationServiceClient {
 
-    private Throwable throwable;
+  private Throwable throwable;
 
-    @Override
-    public ResponseBean<Integer> findExaminationCount(@RequestParam String tenantCode) {
-        log.error("调用{}异常, {}， {}", "findExaminationCount", tenantCode, throwable);
-        return new ResponseBean<>(0);
-    }
+  @Override
+  public ResponseBean<Integer> findExaminationCount(@RequestParam String tenantCode) {
+    log.error("调用{}异常, {}， {}", "findExaminationCount", tenantCode, throwable);
+    return new ResponseBean<>(0);
+  }
 
-    @Override
-    public ResponseBean<Integer> findExamUserCount(String tenantCode) {
-        log.error("调用{}异常, {}， {}", "findExamUserCount", tenantCode, throwable);
-        return null;
-    }
+  @Override
+  public ResponseBean<Integer> findExamUserCount(String tenantCode) {
+    log.error("调用{}异常, {}， {}", "findExamUserCount", tenantCode, throwable);
+    return null;
+  }
 
-    public Throwable getThrowable() {
-        return throwable;
-    }
+  public Throwable getThrowable() {
+    return throwable;
+  }
 
-    public void setThrowable(Throwable throwable) {
-        this.throwable = throwable;
-    }
+  public void setThrowable(Throwable throwable) {
+    this.throwable = throwable;
+  }
 }

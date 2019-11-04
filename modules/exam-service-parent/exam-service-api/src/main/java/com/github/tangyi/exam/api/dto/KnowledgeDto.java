@@ -11,34 +11,34 @@ import lombok.Data;
 @Data
 public class KnowledgeDto extends BaseEntity<KnowledgeDto> {
 
-    /**
-     * 知识名称
-     */
-    private String knowledgeName;
+  /**
+   * 知识名称
+   */
+  private String knowledgeName;
 
-    /**
-     * 知识描述
-     */
-    private String knowledgeDesc;
+  /**
+   * 知识描述
+   */
+  private String knowledgeDesc;
 
-    /**
-     * 附件ID
-     */
-    @JsonFormat(shape = JsonFormat.Shape.STRING)
-    private Long attachmentId;
+  /**
+   * 附件ID
+   */
+  @JsonFormat(shape = JsonFormat.Shape.STRING)
+  private Long attachmentId;
 
-    /**
-     * 状态
-     */
-    private String status;
+  /**
+   * 状态
+   */
+  private String status;
 
-    /**
-     * 附件名称
-     */
-    private String attachName;
+  /**
+   * 附件名称
+   */
+  private String attachName;
 
-    /**
-     * 附件大小
-     */
-    private String attachSize;
+  /**
+   * 附件大小
+   */
+  private String attachSize;
 }

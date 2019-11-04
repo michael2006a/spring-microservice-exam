@@ -20,27 +20,32 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Data
 public class WxAuthenticationProvider implements AuthenticationProvider {
 
-    private MessageSourceAccessor messages = SpringSecurityMessageSource.getAccessor();
+  private MessageSourceAccessor messages = SpringSecurityMessageSource.getAccessor();
 
-    private CustomUserDetailsService customUserDetailsService;
+  private CustomUserDetailsService customUserDetailsService;
 
-    @Override
-    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        WxAuthenticationToken wxAuthenticationToken = (WxAuthenticationToken) authentication;
-        // 微信的code
-        String principal = wxAuthenticationToken.getPrincipal().toString();
-        UserDetails userDetails = customUserDetailsService.loadUserByWxCodeAndTenantCode(principal, TenantContextHolder.getTenantCode(), wxAuthenticationToken.getWxUser());
-        if (userDetails == null) {
-            log.debug("Authentication failed: no credentials provided");
-            throw new BadCredentialsException(messages.getMessage("AbstractUserDetailsAuthenticationProvider.noopBindAccount", "Noop Bind Account"));
-        }
-        WxAuthenticationToken authenticationToken = new WxAuthenticationToken(userDetails, userDetails.getAuthorities());
-        authenticationToken.setDetails(wxAuthenticationToken.getDetails());
-        return authenticationToken;
+  @Override
+  public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+    WxAuthenticationToken wxAuthenticationToken = (WxAuthenticationToken) authentication;
+    // 微信的code
+    String principal = wxAuthenticationToken.getPrincipal().toString();
+    UserDetails userDetails = customUserDetailsService
+        .loadUserByWxCodeAndTenantCode(principal, TenantContextHolder.getTenantCode(),
+            wxAuthenticationToken.getWxUser());
+    if (userDetails == null) {
+      log.debug("Authentication failed: no credentials provided");
+      throw new BadCredentialsException(messages
+          .getMessage("AbstractUserDetailsAuthenticationProvider.noopBindAccount",
+              "Noop Bind Account"));
     }
+    WxAuthenticationToken authenticationToken = new WxAuthenticationToken(userDetails,
+        userDetails.getAuthorities());
+    authenticationToken.setDetails(wxAuthenticationToken.getDetails());
+    return authenticationToken;
+  }
 
-    @Override
-    public boolean supports(Class<?> authentication) {
-        return WxAuthenticationToken.class.isAssignableFrom(authentication);
-    }
+  @Override
+  public boolean supports(Class<?> authentication) {
+    return WxAuthenticationToken.class.isAssignableFrom(authentication);
+  }
 }

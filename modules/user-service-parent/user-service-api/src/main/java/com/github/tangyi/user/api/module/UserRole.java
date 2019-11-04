@@ -12,7 +12,7 @@ import lombok.Data;
 @Data
 public class UserRole extends BaseEntity<UserRole> {
 
-    private Long userId;
+  private Long userId;
 
-    private Long roleId;
+  private Long roleId;
 }
